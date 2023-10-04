@@ -2,7 +2,8 @@ import React from 'react'
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
 
-const LoginForm = () => {
+
+const LoginForm = ({navigation}) => {
     return (
         <View style={styles.loginBackground}>
             <Text style={styles.loginTitle}>Login:</Text>
@@ -14,10 +15,10 @@ const LoginForm = () => {
                 <Text style={styles.loginButtonText}>Login</Text>
             </TouchableOpacity>
             <Text style={styles.questionText}>You don't have an account yet?</Text>
-            <TouchableOpacity style={styles.touchableRegister}>
+            <TouchableOpacity style={styles.touchableRegister} onPress={()=>navigation.navigate('Register')}>
                 <Text style={styles.registerButtonText}>Register</Text>
             </TouchableOpacity>
-            <StatusBar style='auto' />
+            <StatusBar style='auto' translucent={false} backgroundColor='white' />
         </View>
     )
 }
@@ -48,12 +49,12 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         opacity: 1,
-        width: 280,
-        height: 320,
+        width: '73%',
+        height: '45%',
         backgroundColor: 'white',
         opacity: 0.8,
         borderWidth: 3,
-        marginTop: 150,
+        marginTop: 70,
         borderRadius: 10
     },
     touchableLogin: {
@@ -93,5 +94,9 @@ const styles = StyleSheet.create({
         color: 'white',
         fontSize: 15,
         fontWeight: 'bold',
+    },
+    questionText: {
+      fontSize: 17,
+      fontWeight: 'bold'
     }
 })

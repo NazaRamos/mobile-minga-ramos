@@ -4,17 +4,17 @@ import gojoPic from '../public/src/gojo.jpg'
 import Hero from './Hero';
 import LoginForm from './LoginForm';
 
-const index = () => {
+const Index = (props) => {
   return (
     <ImageBackground style={styles.container} source={gojoPic}>
-      <Hero/>
-      <LoginForm/>
+      <Hero navigation={props.navigation}/>
+      <LoginForm navigation={props.navigation}/>
       <Text style={styles.mingaIcon}>Minga 雪</Text>
     </ImageBackground>
   )
 }
 
-export default index
+export default Index
 
 const styles = StyleSheet.create({
   container: {
@@ -31,10 +31,6 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: 'bold',
     width: 300,
-    marginTop: 10
-  },
-  questionText: {
-    fontSize: 17,
-    fontWeight: 'bold'
+    marginVertical: 20
   }
 });
